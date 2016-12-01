@@ -8,11 +8,15 @@
   <body>
     <div class="before_enter">
       <h1>Scott Says Be Back At: </h1>
-      <input type="time" id="input_time">
+      <form onsubmit="event.preventDefault(); setDoomsDay();">
+        <input type="time" id="input_time" />
+        <button type="submit" name="button">DOOM</button>
+      </form>
     </div>
     <div class="after_enter">
-
+      <div id="clockdiv"></div>
     </div>
 
+  <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
