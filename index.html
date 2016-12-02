@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <title>Countdown To Learning</title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <div class="before_enter">
+    <div id="before_enter">
       <h1>Scott Says Be Back At: </h1>
       <form onsubmit="event.preventDefault(); setDoomsDay();">
         <input type="time" id="input_time" />
-        <button type="submit" name="button">DOOM</button>
+        <input type="submit" name="button" class="hidden"></input>
       </form>
     </div>
-    <div class="after_enter">
+    <div id="after_enter" class="hidden">
+      <h1 id="scott_said"></h1>
       <div id="clockdiv"></div>
     </div>
 
