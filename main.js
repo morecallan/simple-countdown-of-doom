@@ -37,8 +37,10 @@ function initializeClock(id, endtime){
       let displayTime = endTimeHours + ':' + endtime.split(':')[1]
       scott_said.innerHTML = `Scott said be back at ${displayTime}.`
       clock.innerHTML = '<div> The learning commences in... </div>' +
-                        `<div> ${t.minutes} minutes </div>` +
-                        `<div> ${t.seconds} seconds </div>`
+                        `<div class="display_box phase-3">` +
+                        `<div> <div class="number">${t.minutes}</div> minutes </div>` +
+                        `<div> <div class="number">${t.seconds}</div> seconds </div>` +
+                        `</div>`
       if(t.total<=0){
         clearInterval(timeinterval);
       }
