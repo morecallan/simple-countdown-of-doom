@@ -39,6 +39,7 @@ function initializeClock(id, endtime){
       console.log(phaseParse(t))
       clock.innerHTML = '<div> The learning commences in... </div>' +
                         `<img src="https://media.giphy.com/media/UxREcFThpSEqk/giphy.gif" class="waiting-img ${(phaseParse(t) == 2) ? 'show' : 'hidden'}">` +
+                        `<img src="https://s-media-cache-ak0.pinimg.com/736x/c2/d6/be/c2d6befa8ee585a8f69b9e25dbf4d335.jpg" class="waiting-img ${(phaseParse(t) == 1) ? 'show' : 'hidden'}">` +
                         `<div class="display_box phase-${phaseParse(t)}">` +
                         `<div> <div class="number">${t.minutes}</div> minutes </div>` +
                         `<div> <div class="number">${t.seconds}</div> seconds </div>` +
@@ -65,7 +66,7 @@ function phaseParse(t) {
   let phase;
   if (t.minutes > 10) {
     phase = 1;
-  } else if (t.minutes < 10 && t.minutes > 2) {
+  } else if (t.minutes <= 10 && t.minutes > 2) {
     phase = 2;
   } else {
     phase = 3;
