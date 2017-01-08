@@ -1,6 +1,11 @@
 body {
   font-family: 'Amatic SC', cursive;
   text-align: center;
+  font-size: 30px;
+}
+
+#content {
+  margin-top: 200px;
 }
 
 .hidden {
@@ -29,7 +34,12 @@ body {
 
 /* phase display changes */
 .phase-1 {
+  background-color: skyblue;
+  color: white;
+}
 
+.phase-1-img {
+  display: block;
 }
 
 .phase-3 {

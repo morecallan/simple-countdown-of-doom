@@ -12,7 +12,7 @@ function getTimeRemaining(endtime){
   end_time_date.setSeconds(0)
   var t = Date.parse(end_time_date) - Date.parse(new Date());
   if (t < 0) {
-    return 'Silly Scott. That time already happened.'
+    return 'Silly Zoe. That time already happened.'
   } else {
     var seconds = Math.floor( (t/1000) % 60 );
     var minutes = Math.floor( (t/1000/60) % 60 );
@@ -35,7 +35,7 @@ function initializeClock(id, endtime){
     if (typeof t == "object") {
       let endTimeHours = Number(endtime.split(':')[0]) > 12 ? Number(endtime.split(':')[0]) - 12 : endtime.split(':')[0]
       let displayTime = endTimeHours + ':' + endtime.split(':')[1]
-      scott_said.innerHTML = `Scott said be back at ${displayTime}.`
+      scott_said.innerHTML = `Zoe said be back at ${displayTime}.`
       clock.innerHTML = '<div> The learning commences in... </div>' +
                         `<div class="display_box phase-3">` +
                         `<div> <div class="number">${t.minutes}</div> minutes </div>` +
