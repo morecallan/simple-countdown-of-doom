@@ -36,8 +36,10 @@ function initializeClock(id, endtime){
       let endTimeHours = Number(endtime.split(':')[0]) > 12 ? Number(endtime.split(':')[0]) - 12 : endtime.split(':')[0]
       let displayTime = endTimeHours + ':' + endtime.split(':')[1]
       scott_said.innerHTML = `Zoe said be back at ${displayTime}.`
+      console.log(phaseParse(t))
       clock.innerHTML = '<div> The learning commences in... </div>' +
-                        `<div class="display_box phase-3">` +
+                        `<img src="https://media.giphy.com/media/UxREcFThpSEqk/giphy.gif" class="waiting-img ${(phaseParse(t) == 2) ? 'show' : 'hidden'}">` +
+                        `<div class="display_box phase-${phaseParse(t)}">` +
                         `<div> <div class="number">${t.minutes}</div> minutes </div>` +
                         `<div> <div class="number">${t.seconds}</div> seconds </div>` +
                         `</div>`
@@ -57,4 +59,16 @@ function setDoomsDay() {
   before_enter.classList.add("hidden")
   after_enter.classList.remove("hidden")
   initializeClock('clockdiv', time_set);
+}
+
+function phaseParse(t) {
+  let phase;
+  if (t.minutes > 10) {
+    phase = 1;
+  } else if (t.minutes < 10 && t.minutes > 2) {
+    phase = 2;
+  } else {
+    phase = 3;
+  }
+  return phase;
 }
