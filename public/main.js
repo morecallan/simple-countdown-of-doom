@@ -36,7 +36,6 @@ function initializeClock(id, endtime){
       let endTimeHours = Number(endtime.split(':')[0]) > 12 ? Number(endtime.split(':')[0]) - 12 : endtime.split(':')[0]
       let displayTime = endTimeHours + ':' + endtime.split(':')[1]
       scott_said.innerHTML = `Zoe said be back at ${displayTime}.`
-      console.log(phaseParse(t))
       clock.innerHTML = '<div> The learning commences in... </div>' +
                         `<img src="https://media.giphy.com/media/UxREcFThpSEqk/giphy.gif" class="waiting-img ${(phaseParse(t) == 2) ? 'show' : 'hidden'}">` +
                         `<img src="https://s-media-cache-ak0.pinimg.com/736x/c2/d6/be/c2d6befa8ee585a8f69b9e25dbf4d335.jpg" class="waiting-img ${(phaseParse(t) == 1) ? 'show' : 'hidden'}">` +
@@ -46,6 +45,10 @@ function initializeClock(id, endtime){
                         `</div>`
       if(t.total<=0){
         clearInterval(timeinterval);
+      } else if (t.total==1) {
+        scott_said.innerHTML = `Zoe said be back at ${displayTime}.`
+        clock.innerHTML = '<div> UGH' +
+                          `</div>`
       }
     } else {
       scott_said.innerHTML = t;
