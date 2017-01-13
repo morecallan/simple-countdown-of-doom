@@ -2,7 +2,8 @@ const before_enter = document.getElementById("before_enter")
 const after_enter = document.getElementById("after_enter")
 const scott_said = document.getElementById("scott_said")
 
-const explosion_array = ["http://www.reactiongifs.us/wp-content/uploads/2013/08/bitches_gots_to_learn_orange.gif", "https://media.tenor.co/images/5b04f7e51bd8659b985b8aa4f86ffedc/raw"]
+const explosion_array = ["http://www.reactiongifs.us/wp-content/uploads/2013/08/bitches_gots_to_learn_orange.gif", "https://media.tenor.co/images/5b04f7e51bd8659b985b8aa4f86ffedc/raw", "https://adoptiveblackmom.files.wordpress.com/2016/03/200_s.gif", "https://randomletterstotheworld.files.wordpress.com/2012/07/tumblr_lwwhywaqmm1qatmal.gif", "https://media.tenor.co/images/cbb5332b609d9e1bb484c5dc925a774d/raw", "http://replygif.net/i/724.gif", "https://az616578.vo.msecnd.net/files/2016/01/17/6358866633973910581146351272_The-Notebook-Now-Its-Too-Late-GIF.gif", "http://cdn.gurl.com/wp-content/uploads/2014/05/late-gif.gif", "https://68.media.tumblr.com/632b2603278412e8381309d60eb1d078/tumblr_njr9nvsWeW1si3gq6o1_r1_500.gif", "http://static.fjcdn.com/gifs/when+im+dancing+alone+at+a+party.+blues+clues_9b9d7c_3354611.gif", "https://68.media.tumblr.com/17ec976e56e41705c3cf417c24c41c5b/tumblr_nnndvj7WBp1rt5pgzo1_400.gif"]
+
 function getTimeRemaining(endtime){
   var end_time_date = new Date()
   var hours = endtime.split(":")[0]
@@ -47,7 +48,8 @@ function initializeClock(id, endtime){
         clearInterval(timeinterval);
       } else if (t.total==0) {
         scott_said.innerHTML = `Zoe said be back at ${displayTime}.`
-        clock.innerHTML = '<div> UGH' +
+        clock.innerHTML = '<div>' +
+                            `<img src=${explosion_array[getRandomInt(0, explosion_array.length - 1)]}>`
                           `</div>`;
         clearInterval(timeinterval);
       }
@@ -76,4 +78,10 @@ function phaseParse(t) {
     phase = 3;
   }
   return phase;
+}
+
+let getRandomInt = function (min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
