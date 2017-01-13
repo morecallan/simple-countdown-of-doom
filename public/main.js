@@ -2,7 +2,7 @@ const before_enter = document.getElementById("before_enter")
 const after_enter = document.getElementById("after_enter")
 const scott_said = document.getElementById("scott_said")
 
-
+const explosion_array = ["http://www.reactiongifs.us/wp-content/uploads/2013/08/bitches_gots_to_learn_orange.gif", "https://media.tenor.co/images/5b04f7e51bd8659b985b8aa4f86ffedc/raw"]
 function getTimeRemaining(endtime){
   var end_time_date = new Date()
   var hours = endtime.split(":")[0]
@@ -43,12 +43,13 @@ function initializeClock(id, endtime){
                         `<div> <div class="number">${t.minutes}</div> minutes </div>` +
                         `<div> <div class="number">${t.seconds}</div> seconds </div>` +
                         `</div>`
-      if(t.total<=0){
+      if(t.total<0){
         clearInterval(timeinterval);
-      } else if (t.total==1) {
+      } else if (t.total==0) {
         scott_said.innerHTML = `Zoe said be back at ${displayTime}.`
         clock.innerHTML = '<div> UGH' +
-                          `</div>`
+                          `</div>`;
+        clearInterval(timeinterval);
       }
     } else {
       scott_said.innerHTML = t;
