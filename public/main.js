@@ -79,7 +79,7 @@ function phaseParse(t) {
   let phase;
   if (t.minutes > 10) {
     phase = 1;
-  } else if (t.minutes <= 10 && t.minutes > 2) {
+  } else if (t.minutes <= 10 && t.minutes > 1) {
     phase = 2;
   } else {
     phase = 3;
